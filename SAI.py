@@ -12,8 +12,8 @@ import ST7789
 MESSAGE = "READY"
 TITLE = "Main Menu"
 OPTION1 = "Options"
-OPTION1 = "Credits"
-OPTION1 = "Configs"
+OPTION2 = "Credits"
+OPTION3 = "Configs"
 
 disp = ST7789.ST7789(
         height=240,
@@ -82,7 +82,20 @@ font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 size_x, size_y = draw.textsize(MESSAGE, font)
 title_size_x, title_size_y = draw.textsize(TITLE, font)
 title_text_x = (disp.width - title_size_x) // 2
-print(" size x = {}, size y= {}, text_x={}".format(title_size_x,title_size_y,title_text_x))
+
+option1_size_x, option1_size_y = draw.textsize(OPTION1, font)
+option1_text_x = (disp.width - option1_size_x) // 2
+option1_text_y = title_size_y
+
+
+option2_size_x, option2_size_y = draw.textsize(OPTION2, font)
+option2_text_x = (disp.width - option2_size_x) // 2
+option2_text_y = title_size_y * 2
+
+
+option3_size_x, option3_size_y = draw.textsize(OPTION3, font)
+option3_text_x = (disp.width - option3_size_x) // 2
+option3_text_y = title_size_y * 3
 
 text_x = disp.width
 text_y = (80 - size_y) // 2
