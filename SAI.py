@@ -78,14 +78,12 @@ font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 size_x, size_y = draw.textsize(MESSAGE, font)
 
 text_x = disp.width
-text_y = (disp.height - size_y) // 2
+text_y = 0
 
 t_start = time.time()
-# x = size_x + disp.width
 while True:
-    x = 200
+    x = (time.time() - t_start) * 100
     x %= (size_x + disp.width)
-#    x = size_x + disp.width
     draw.rectangle((0, 0, disp.width, disp.height), (0, 0, 0))
     draw.text((int(text_x - x), text_y), MESSAGE, font=font, fill=(255, 255, 255))
     disp.display(img)
