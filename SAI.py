@@ -106,6 +106,9 @@ while True:
     x %= (size_x + disp.width)
     draw.rectangle((0, 0, disp.width, disp.height), (0, 0, 0))
     draw.text((int(title_text_x), 0), TITLE, font=font, fill=(255, 255, 255))
+    draw.text((int(option1_text_x), option1_text_y), OPTION1, font=font, fill=(255, 255, 255))
+    draw.text((int(option2_text_x), option2_text_y), OPTION2, font=font, fill=(255, 255, 255))
+    draw.text((int(option3_text_x), option3_text_y), OPTION3, font=font, fill=(255, 255, 255))
     draw.text((int(text_x - x), text_y), MESSAGE, font=font, fill=(255, 255, 255))
     disp.display(img)
 
