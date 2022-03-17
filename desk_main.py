@@ -1,4 +1,4 @@
-from game import Game
+from desk_game import Game
 
 g = Game()
 
