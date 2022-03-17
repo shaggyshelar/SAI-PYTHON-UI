@@ -10,6 +10,10 @@ from PIL import ImageFont
 import ST7789
 
 MESSAGE = "READY"
+TITLE = "Main Menu"
+OPTION1 = "Options"
+OPTION1 = "Credits"
+OPTION1 = "Configs"
 
 disp = ST7789.ST7789(
         height=240,
@@ -76,15 +80,18 @@ draw = ImageDraw.Draw(img)
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 30)
 
 size_x, size_y = draw.textsize(MESSAGE, font)
+title_size_x, title_size_y = draw.textsize(TITLE, font)
+title_text_x = (80 - title_size_x) // 2
 
 text_x = disp.width
-text_y = 0
+text_y = (80 - size_y) // 2
 
 t_start = time.time()
 while True:
     x = (time.time() - t_start) * 100
     x %= (size_x + disp.width)
     draw.rectangle((0, 0, disp.width, disp.height), (0, 0, 0))
+    draw.text((int(title_text_x), 0), TITLE, font=font, fill=(255, 255, 255))
     draw.text((int(text_x - x), text_y), MESSAGE, font=font, fill=(255, 255, 255))
     disp.display(img)
 
