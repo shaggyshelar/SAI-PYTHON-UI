@@ -2,11 +2,11 @@ import signal
 import RPi.GPIO as GPIO
 import sys
 import time
-
+import os
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
-
+import subprocess
 import ST7789
 
 MESSAGE = "READY"
@@ -28,13 +28,18 @@ disp = ST7789.ST7789(
         offset_top=0
    )
 
-
 print("""buttons.py - Detect which button has been pressed
 This example should demonstrate how to:
 1. set up RPi.GPIO to read buttons,
 2. determine which button has been pressed
 Press Ctrl+C to exit!
 """)
+
+cwd = "{}/SAI-PYTHON-UI/".format(os.getcwd())
+cwd1 = os.getcwd()
+
+print("{}/Flite/test.wav".format(cwd))
+subprocess.run(['aplay',"{}/Flite/test.wav".format(cwd1)])
 
 # The buttons on Pirate Audio are connected to pins 5, 6, 16 and 24
 # Boards prior to 23 January 2020 used 5, 6, 16 and 20
@@ -58,6 +63,10 @@ def handle_button(pin):
     label = LABELS[BUTTONS.index(pin)]
     global MESSAGE
     MESSAGE  = "Button: {}".format(label)
+    # sound = AudioSegment.from_wav("{}/Flite/{}.wav".format(cwd,label))
+    # play(sound)
+    print("{}/Flite/{}.wav".format(cwd,label))
+    subprocess.run(['aplay',"{}/Flite/{}.wav".format(cwd1,label)])
     print("Button press detected on pin: {} label: {}".format(pin, label))
 
 
