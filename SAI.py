@@ -79,7 +79,6 @@ draw = ImageDraw.Draw(img)
 
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 30)
 
-size_x, size_y = draw.textsize(MESSAGE, font)
 title_size_x, title_size_y = draw.textsize(TITLE, font)
 title_text_x = (disp.width - title_size_x) // 2
 
@@ -97,8 +96,9 @@ option3_size_x, option3_size_y = draw.textsize(OPTION3, font)
 option3_text_x = (disp.width - option3_size_x) // 2
 option3_text_y = title_size_y * 3
 
+size_x, size_y = draw.textsize(MESSAGE, font)
 text_x = disp.width
-text_y = (80 - size_y) // 2
+text_y = size_y * 4
 
 t_start = time.time()
 while True:
