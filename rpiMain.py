@@ -2,7 +2,7 @@ import signal
 import RPi.GPIO as GPIO
 import sys
 import time
-from desk_menu import *
+from rpiMenu import *
 
 from PIL import Image
 from PIL import ImageDraw
