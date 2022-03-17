@@ -10,6 +10,10 @@ from PIL import ImageFont
 
 import ST7789
 
+
+from rpiGame import Game
+g = Game()
+
 MESSAGE = "READY"
 
 disp = ST7789.ST7789(
