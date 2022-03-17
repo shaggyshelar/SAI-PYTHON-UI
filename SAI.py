@@ -81,7 +81,8 @@ font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 
 size_x, size_y = draw.textsize(MESSAGE, font)
 title_size_x, title_size_y = draw.textsize(TITLE, font)
-title_text_x = (80 - title_size_x) // 2
+title_text_x = (disp.width - title_size_x) // 2
+print(" size x = {}, size y= {}, text_x={}".format(title_size_x,title_size_y,title_text_x))
 
 text_x = disp.width
 text_y = (80 - size_y) // 2
