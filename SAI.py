@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+from ctypes import *
 import signal
 import RPi.GPIO as GPIO
 import sys
@@ -11,14 +11,17 @@ from PIL import ImageDraw
 from PIL import ImageFont
 import subprocess
 from pygame import mixer
-
 import ST7789
+adder = CDLL('./adder.so')
 
 MESSAGE = "READY"
 TITLE = "Main Menu"
 OPTION1 = "Options"
 OPTION2 = "Credits"
 OPTION3 = "Configs"
+
+res_int = adder.add_int(4,5)
+print("Sum of 4 and 5 = {}".format(res_int))
 
 disp = ST7789.ST7789(
         height=240,
