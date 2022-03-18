@@ -23,6 +23,9 @@ OPTION3 = "Configs"
 res_int = adder.add_int(4,5)
 print("Sum of 4 and 5 = {}".format(res_int))
 
+res_int1 = adder.add_new(3,2)
+print("Sum of 3 and 2 = {}".format(res_int1))
+
 disp = ST7789.ST7789(
         height=240,
         width=240,
