@@ -4,6 +4,12 @@ To run on Mac
 - python3 main.py
 
 To Run Flite
+- git  clone https://github.com/festvox/flite
+- cd flite
+- ./configure --with-audio=alsa --with-vox=awb
+- make
+
+To run already created executable flite build
 - cd Flite
 - `chmod +x flite` ( this is one time )
 - `./flite -t "Hello World" -o test.wav`
@@ -24,7 +30,11 @@ Compile file in in .c
 
 
 To Compile "flite_sample.c" which include flite on MacOS
-`gcc -shared -Wl,-install_name,adder -g -o flite_sample.so -fPIC flite_sample.c -I./include -L./build/x86_64-darwin21.1.0/lib -lflite_cmu_us_kal -lflite_usenglish -lflite_cmulex -lflite -lm`
+`gcc -shared -Wl,-install_name,flite_sample -g -o flite_sample.so -fPIC flite_sample.c -I./include -L./build/x86_64-darwin21.1.0/lib -lflite_cmu_us_kal -lflite_usenglish -lflite_cmulex -lflite -lm`
+
+To Compile "flite_sample.c" which include flite on RaspberyPi
+`gcc -shared -Wl,-soname,flite_sample -g -o flite_sample.so -fPIC flite_sample.c -I./include -L./build/armv6l-linux-gnueabihf/lib -lflite_cmu_us_kal -lflite_usenglish -lflite_cmulex -lflite -lm -lasound`
+
 
 To run sample file include "flite_sample.so" file
 `python3 flite_sample.py`

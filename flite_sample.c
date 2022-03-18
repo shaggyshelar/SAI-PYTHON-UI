@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <flite/flite.h>
+#include "include/flite.h"
 
 int i2s_stream_chunk(const cst_wave *w, int start, int size,
                      int last, cst_audio_streaming_info *asi);
