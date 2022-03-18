@@ -63,6 +63,7 @@ def handle_button(pin):
     label = LABELS[BUTTONS.index(pin)]
     global MESSAGE
     MESSAGE  = "Button: {}".format(label)
+    pygame.mixer.stop()
     if label == "A":
         a_sound.play()
     elif label == "B":
