@@ -43,17 +43,17 @@ Press Ctrl+C to exit!
 cwd = "{}/SAI-PYTHON-UI/".format(os.getcwd())
 cwd1 = os.getcwd()
 
-print("{}/Flite/test.wav".format(cwd))
+# print("{}/Flite/test.wav".format(cwd))
 mixer.init()
 
-mixer.music.load("./Flite/test.wav")
+mixer.music.load("Flite/test.wav")
 mixer.music.set_volume(0.7)
 mixer.music.play()
 
-a_sound = pygame.mixer.Sound("./Flite/A.wav")
-b_sound = pygame.mixer.Sound("./Flite/B.wav")
-x_sound = pygame.mixer.Sound("./Flite/X.wav")
-y_sound = pygame.mixer.Sound("./Flite/Y.wav")
+a_sound = pygame.mixer.Sound("Flite/A.wav")
+b_sound = pygame.mixer.Sound("Flite/B.wav")
+x_sound = pygame.mixer.Sound("Flite/X.wav")
+y_sound = pygame.mixer.Sound("Flite/Y.wav")
 
 BUTTONS = [5, 6, 16, 24]
 LABELS = ['A', 'B', 'X', 'Y']
