@@ -38,3 +38,6 @@ To Compile "flite_sample.c" which include flite on RaspberyPi
 
 To run sample file include "flite_sample.so" file
 `python3 flite_sample.py`
+
+Repo for flite c to python
+https://github.com/happyalu/pyflite
