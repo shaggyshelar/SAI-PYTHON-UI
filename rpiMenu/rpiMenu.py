@@ -131,7 +131,7 @@ class CreditsMenu(Menu):
         print(" CreditsMenu run_display = {}".format(self.run_display))
         while self.run_display:
             # self.game.check_events()
-            if self.game.START_KEY or self.game.BACK_KEY:
+            if self.game.BACK_KEY:
                 self.game.curr_menu = self.game.main_menu
                 self.run_display = False
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))

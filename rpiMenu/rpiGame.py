@@ -49,7 +49,6 @@ class Game():
         self.curr_menu = self.main_menu
         mixer.init()
         self.disp.begin()
-        print("display begin")
         for pin in self.BUTTONS:
             GPIO.add_event_detect(pin, GPIO.FALLING, self.handle_button, bouncetime=100)
 
@@ -86,7 +85,7 @@ class Game():
         if self.START_KEY or self.BACK_KEY:
             # self.curr_menu = self.main_menu
             self.playing = False
-        self.reset()
+        self.reset_keys()
 
     def reset_keys(self):
         # print("Reset Key Called")
