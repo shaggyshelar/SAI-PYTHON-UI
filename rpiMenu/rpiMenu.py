@@ -32,8 +32,8 @@ class MainMenu(Menu):
         self.run_display = True
         print(" Main run_display = {}".format(self.run_display))
         while self.run_display:
-            print("Down key 1 = {}".format(self.game.DOWN_KEY))
-            print("Label  1= {}".format(self.game.label))
+            print("******** Down key 1 = {}".format(self.game.DOWN_KEY))
+            print("Label = {}".format(self.game.label))
             self.check_input()
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
             self.game.draw_text('Main Menu', 0, 0)
@@ -42,6 +42,7 @@ class MainMenu(Menu):
             self.game.draw_text("Credits", self.game.cursor_offset, self.game.title_size_y * 3)
             self.draw_cursor()
             self.game.disp.display(self.game.img)
+            self.game.reset_keys()
             # self.reset()
         print(" Main run_display completed")
 
