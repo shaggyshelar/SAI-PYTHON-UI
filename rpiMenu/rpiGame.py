@@ -21,6 +21,7 @@ class Game():
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
         self.BUTTONS = [5, 6, 16, 24]
         self.LABELS = ['A', 'B', 'X', 'Y']
+        self.label = "----"
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.BUTTONS, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         self.img = Image.new('RGB', (240, 240), color=(0, 0, 0))
@@ -54,7 +55,7 @@ class Game():
 
     
     def handle_button(self, pin):
-        label = self.LABELS[self.BUTTONS.index(pin)]
+        self.label = self.LABELS[self.BUTTONS.index(pin)]
         if label == "A":
             self.UP_KEY = True
             print("A pressed UP_KEY = {}".format(self.UP_KEY))
@@ -67,7 +68,7 @@ class Game():
         elif label == "Y":
             self.BACK_KEY = True
             print("Y pressed Back Key = {}".format(self.BACK_KEY))
-        print("Button press detected on pin: {} label: {}".format(pin, label))
+        print("Button press detected on pin: {} label: {}".format(pin, self.label))
         
     def game_loop(self):
         while self.playing:
