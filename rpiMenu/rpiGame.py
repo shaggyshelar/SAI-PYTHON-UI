@@ -54,8 +54,10 @@ class Game():
         
     def game_loop(self):
         while self.playing:
+            self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
             self.draw_text("Hello Sagar", self.title_text_x, 0)
             self.draw_text("Options", self.title_text_x, self.title_size_y * 2)
+            self.draw_text("Credits", self.title_text_x, self.title_size_y * 3)
             self.disp.display(self.img)
             self.reset_keys()
 
@@ -63,7 +65,4 @@ class Game():
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
 
     def draw_text(self, text, x, y ):
-        # x = (time.time() - self.t_start) * 100
-        # x %= (self.title_size_x + self.disp.width)
-        self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
         self.draw.text((x, y), text, font=self.font, fill=(255, 255, 255))
