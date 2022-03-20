@@ -15,12 +15,12 @@ from rpiMenu import MainMenu
 class Game():
     def __init__(self):
         pygame.init()
-        self.running, self.playing = True, True
+        self.running, self.playing = True, False
         self.DISPLAY_W, self.DISPLAY_H = 240, 240
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
         self.main_menu = MainMenu(self)
         self.options = OptionsMenu(self)
-        # self.credits = CreditsMenu(self)
+        self.credits = CreditsMenu(self)
         self.curr_menu = self.main_menu
         self.BUTTONS = [5, 6, 16, 24]
         self.LABELS = ['A', 'B', 'X', 'Y']
@@ -57,9 +57,9 @@ class Game():
     def game_loop(self):
         while self.playing:
             self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
-            self.draw_text("Hello Sagar", self.title_text_x, 0)
-            self.draw_text("Options", self.title_text_x, self.title_size_y)
-            self.draw_text("*", 0, self.title_size_y )
+            self.draw_text("Thanks for playing", self.title_text_x, 0)
+            # self.draw_text("Options", self.title_text_x, self.title_size_y)
+            # self.draw_text("*", 0, self.title_size_y )
             # self.draw_text("Credits", self.title_text_x, self.title_size_y * 2)
             # self.draw_text("Configs", self.title_text_x, self.title_size_y * 3)
             self.disp.display(self.img)

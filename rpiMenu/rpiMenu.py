@@ -119,6 +119,6 @@ class CreditsMenu(Menu):
                 self.game.curr_menu = self.game.main_menu
                 self.run_display = False
             self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
-            self.game.draw_text('Credits', 20, 240 / 2, 240 / 2 - 20)
-            self.game.draw_text('Made by me', 15, 240 / 2, 240 / 2 + 10)
+            self.game.draw_text('Credits', 240 / 2, 240 / 2 - 20)
+            self.game.draw_text('Made by me', 240 / 2, 240 / 2 + 10)
             # self.blit_screen()
