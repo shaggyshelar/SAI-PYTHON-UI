@@ -32,7 +32,8 @@ class MainMenu(Menu):
         self.run_display = True
         print(" Main run_display = {}".format(self.run_display))
         while self.run_display:
-            print("Down key = {}".format(self.game.DOWN_KEY))
+            print("Down key 1 = {}".format(self.game.DOWN_KEY))
+            print("Label  1= {}".format(self.game.label))
             self.check_input()
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
             self.game.draw_text('Main Menu', 0, 0)

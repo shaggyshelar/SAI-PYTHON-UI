@@ -56,16 +56,16 @@ class Game():
     
     def handle_button(self, pin):
         self.label = self.LABELS[self.BUTTONS.index(pin)]
-        if label == "A":
+        if self.label == "A":
             self.UP_KEY = True
             print("A pressed UP_KEY = {}".format(self.UP_KEY))
-        elif label == "B":
+        elif self.label == "B":
             self.DOWN_KEY = True
             print("B pressed DOWN_KEY = {}".format(self.DOWN_KEY))
-        elif label == "X":
+        elif self.label == "X":
             self.START_KEY = True
             print("X pressed START_KEY = {}".format(self.START_KEY))
-        elif label == "Y":
+        elif self.label == "Y":
             self.BACK_KEY = True
             print("Y pressed Back Key = {}".format(self.BACK_KEY))
         print("Button press detected on pin: {} label: {}".format(pin, self.label))
