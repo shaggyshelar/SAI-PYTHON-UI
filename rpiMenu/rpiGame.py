@@ -54,35 +54,16 @@ class Game():
         
     def game_loop(self):
         while self.playing:
-            x = (time.time() - self.t_start) * 100
-            x %= (self.title_size_x + self.disp.width)
-            self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
-            self.draw.text((int(self.title_text_x), 0), self.TITLE, font=self.font, fill=(255, 255, 255))
+            self.draw_text("Hello Sagar", self.title_text_x, 0)
+            self.draw_text("Options", self.title_text_x, self.title_size_y * 2)
             self.disp.display(self.img)
             self.reset_keys()
-
-    def check_events(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                self.running, self.playing = False, False
-                self.curr_menu.run_display = False
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RETURN:
-                    self.START_KEY = True
-                if event.key == pygame.K_BACKSPACE:
-                    self.BACK_KEY = True
-                if event.key == pygame.K_DOWN:
-                    self.DOWN_KEY = True
-                if event.key == pygame.K_UP:
-                    self.UP_KEY = True
 
     def reset_keys(self):
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
 
-    def draw_text(self, text, size, x, y ):
-        pass
-        # font = pygame.font.Font(self.font_name,size)
-        # text_surface = font.render(text, True, self.WHITE)
-        # text_rect = text_surface.get_rect()
-        # text_rect.center = (x,y)
-        # self.display.blit(text_surface,text_rect)
+    def draw_text(self, text, x, y ):
+        # x = (time.time() - self.t_start) * 100
+        # x %= (self.title_size_x + self.disp.width)
+        self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
+        self.draw.text((x, y), text, font=self.font, fill=(255, 255, 255))
