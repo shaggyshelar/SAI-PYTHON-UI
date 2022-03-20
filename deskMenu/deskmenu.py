@@ -27,6 +27,7 @@ class MainMenu(Menu):
 
     def display_menu(self):
         self.run_display = True
+        print(" Main run_display = {}".format(self.run_display))
         while self.run_display:
             self.game.check_events()
             self.check_input()
@@ -37,6 +38,7 @@ class MainMenu(Menu):
             self.game.draw_text("Credits", 20, self.creditsx, self.creditsy)
             self.draw_cursor()
             self.blit_screen()
+        print(" Main run_display completed")
 
 
     def move_cursor(self):
