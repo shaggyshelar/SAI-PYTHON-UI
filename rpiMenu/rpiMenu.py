@@ -10,7 +10,10 @@ class Menu():
 
     def draw_cursor(self):
         self.game.draw_text('$', self.cursor_rect.x, self.cursor_rect.y)
-
+    
+    def reset(self):
+        self.game.reset_keys()
+        
     # def blit_screen(self):
     #     self.game.window.blit(self.game.display, (0, 0))
     #     pygame.display.update()
@@ -29,7 +32,6 @@ class MainMenu(Menu):
         self.run_display = True
         print(" Main run_display = {}".format(self.run_display))
         while self.run_display:
-            # self.game.check_events()
             self.check_input()
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
             self.game.draw_text('Main Menu', 0, 0)
@@ -38,7 +40,7 @@ class MainMenu(Menu):
             self.game.draw_text("Credits", self.game.cursor_offset, self.game.title_size_y * 3)
             self.draw_cursor()
             self.game.disp.display(self.game.img)
-            # self.blit_screen()
+            self.reset()
         print(" Main run_display completed")
 
     def move_cursor(self):
@@ -87,14 +89,14 @@ class OptionsMenu(Menu):
         print(" OptionsMenu run_display = {}".format(self.run_display))
         while self.run_display:
             # self.game.check_events()
-            # self.check_input()
+            self.check_input()
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
             self.game.draw_text('Options', self.game.cursor_offset, 0)
             self.game.draw_text("Volume", self.game.cursor_offset, self.game.title_size_y)
             self.game.draw_text("Controls", self.game.cursor_offset, self.game.title_size_y * 2)
             self.draw_cursor()
             self.game.disp.display(self.game.img)
-            # self.blit_screen()
+            self.reset()
         print(" OptionsMenu run_display completed")
 
     def check_input(self):
@@ -128,6 +130,6 @@ class CreditsMenu(Menu):
             self.game.draw_text('Credits', self.game.cursor_offset, 0)
             self.game.draw_text('Made by me', self.game.cursor_offset, self.game.title_size_y)
             self.game.disp.display(self.game.img)
-            # self.blit_screen()
+            self.reset()
         print(" CreditsMenu run_display completed")
         
