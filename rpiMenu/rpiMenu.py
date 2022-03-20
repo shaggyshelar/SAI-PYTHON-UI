@@ -28,8 +28,8 @@ class MainMenu(Menu):
     def display_menu(self):
         self.run_display = True
         while self.run_display:
-            self.game.check_events()
-            self.check_input()
+            # self.game.check_events()
+            # self.check_input()
             self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
             self.game.draw_text('SAI', 240 / 2, 240 / 2 - 20)
             self.game.draw_text("Start Game", self.startx, self.starty)
