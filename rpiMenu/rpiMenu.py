@@ -30,7 +30,7 @@ class MainMenu(Menu):
         while self.run_display:
             # self.game.check_events()
             # self.check_input()
-            self.game.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
+            self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
             self.game.draw_text('SAI', 240 / 2, 240 / 2 - 20)
             self.game.draw_text("Start Game", self.startx, self.starty)
             self.game.draw_text("Options", self.optionsx, self.optionsy)
@@ -85,7 +85,7 @@ class OptionsMenu(Menu):
         while self.run_display:
             # self.game.check_events()
             # self.check_input()
-            self.game.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
+            self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
             self.game.draw_text('Options', 240 / 2, 240 / 2 - 30)
             self.game.draw_text("Volume", self.volx, self.voly)
             self.game.draw_text("Controls", self.controlsx, self.controlsy)
@@ -118,7 +118,7 @@ class CreditsMenu(Menu):
             if self.game.START_KEY or self.game.BACK_KEY:
                 self.game.curr_menu = self.game.main_menu
                 self.run_display = False
-            self.game.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
+            self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
             self.game.draw_text('Credits', 240 / 2, 240 / 2 - 20)
             self.game.draw_text('Made by me', 240 / 2, 240 / 2 + 10)
             # self.blit_screen()
