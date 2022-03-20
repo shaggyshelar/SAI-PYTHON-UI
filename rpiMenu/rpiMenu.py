@@ -37,7 +37,7 @@ class MainMenu(Menu):
             self.game.draw_text("Options", 0, self.game.title_size_y * 2)
             self.game.draw_text("Credits", 0, self.game.title_size_y * 3)
             self.draw_cursor()
-            self.game.display(self.game.img)
+            self.game.disp.display(self.game.img)
             # self.blit_screen()
         print(" Main run_display completed")
         
@@ -95,6 +95,7 @@ class OptionsMenu(Menu):
             self.game.draw_text("Volume", 0, self.game.title_size_y)
             self.game.draw_text("Controls", 0, self.game.title_size_y * 2)
             self.draw_cursor()
+            self.game.disp.display(self.game.img)
             # self.blit_screen()
         print(" OptionsMenu run_display completed")
 
@@ -128,6 +129,7 @@ class CreditsMenu(Menu):
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
             self.game.draw_text('Credits', 0, 0)
             self.game.draw_text('Made by me', 0, self.game.title_size_y)
+            self.game.disp.display(self.game.img)
             # self.blit_screen()
         print(" CreditsMenu run_display completed")
         
