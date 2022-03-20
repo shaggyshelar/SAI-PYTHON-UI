@@ -51,9 +51,18 @@ class Game():
         print("display begin")
         for pin in self.BUTTONS:
             GPIO.add_event_detect(pin, GPIO.FALLING, self.handle_button, bouncetime=100)
+
     
     def handle_button(self, pin):
         label = self.LABELS[self.BUTTONS.index(pin)]
+        if label == "A":
+            self.UP_KEY = True
+        elif label == "B":
+            self.DOWN_KEY = True
+        elif label == "X":
+            self.START_KEY = True
+        elif label == "Y":
+            self.BACK_KEY = True
         print("Button press detected on pin: {} label: {}".format(pin, label))
         
     def game_loop(self):
