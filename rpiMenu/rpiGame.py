@@ -72,8 +72,7 @@ class Game():
         
     def game_loop(self):
         while self.playing:
-            if self.game.START_KEY:
-                self.playing = False
+            self.check_input()
             self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
             self.draw_text("Thanks for playing", self.title_text_x, 0)
             # self.draw_text("Options", self.title_text_x, self.title_size_y)
@@ -84,7 +83,8 @@ class Game():
             # self.reset_keys()
             
     def check_input(self):
-        if self.game.BACK_KEY:
+        if self.START_KEY or self.BACK_KEY:
+            # self.curr_menu = self.main_menu
             self.playing = False
         self.reset()
 

@@ -89,7 +89,7 @@ class OptionsMenu(Menu):
         self.state = 'Volume'
         self.volx, self.voly = self.mid_w, self.mid_h + 20
         self.controlsx, self.controlsy = self.mid_w, self.mid_h + 40
-        self.cursor_rect.midtop = (self.volx + self.offset, self.voly)
+        self.cursor_rect.midtop = (0, self.game.title_size_y)
 
     def display_menu(self):
         self.run_display = True
