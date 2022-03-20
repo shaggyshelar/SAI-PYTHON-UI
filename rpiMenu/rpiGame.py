@@ -58,8 +58,8 @@ class Game():
         while self.playing:
             self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
             self.draw_text("Hello Sagar", self.title_text_x, 0)
-            self.draw_text("Options", 0, self.title_size_y)
-            self.draw_text("*", self.title_text_x, self.title_size_y )
+            self.draw_text("Options", self.title_text_x, self.title_size_y)
+            self.draw_text("*", 0, self.title_size_y )
             # self.draw_text("Credits", self.title_text_x, self.title_size_y * 2)
             # self.draw_text("Configs", self.title_text_x, self.title_size_y * 3)
             self.disp.display(self.img)
