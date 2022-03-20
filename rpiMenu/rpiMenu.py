@@ -3,7 +3,7 @@ import pygame
 class Menu():
     def __init__(self, game):
         self.game = game
-        self.mid_w, self.mid_h = 240 / 2, self.DISPLAY_H / 2
+        self.mid_w, self.mid_h = 240 / 2, 240 / 2
         self.run_display = True
         self.cursor_rect = pygame.Rect(0, 0, 20, 20)
         self.offset = - 100
@@ -31,7 +31,7 @@ class MainMenu(Menu):
             self.game.check_events()
             self.check_input()
             self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
-            self.game.draw_text('SAI', self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 20)
+            self.game.draw_text('SAI', 240 / 2, 240 / 2 - 20)
             self.game.draw_text("Start Game", self.startx, self.starty)
             self.game.draw_text("Options", self.optionsx, self.optionsy)
             self.game.draw_text("Credits", self.creditsx, self.creditsy)
@@ -86,7 +86,7 @@ class OptionsMenu(Menu):
             # self.game.check_events()
             # self.check_input()
             self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
-            self.game.draw_text('Options', self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 30)
+            self.game.draw_text('Options', 240 / 2, 240 / 2 - 30)
             self.game.draw_text("Volume", self.volx, self.voly)
             self.game.draw_text("Controls", self.controlsx, self.controlsy)
             self.draw_cursor()
@@ -119,6 +119,6 @@ class CreditsMenu(Menu):
                 self.game.curr_menu = self.game.main_menu
                 self.run_display = False
             self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
-            self.game.draw_text('Credits', 20, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 20)
-            self.game.draw_text('Made by me', 15, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 + 10)
+            self.game.draw_text('Credits', 20, 240 / 2, 240 / 2 - 20)
+            self.game.draw_text('Made by me', 15, 240 / 2, 240 / 2 + 10)
             # self.blit_screen()
