@@ -14,7 +14,7 @@ import ST7789
 class Game():
     def __init__(self):
         pygame.init()
-        self.running, self.playing = True, False
+        self.running, self.playing = True, True
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
         # self.main_menu = MainMenu(self)
         # self.options = OptionsMenu(self)
@@ -45,18 +45,21 @@ class Game():
         self.title_text_x = (self.disp.width - self.title_size_x) // 2
         mixer.init()
         self.disp.begin()
-
+        for pin in self.BUTTONS:
+            GPIO.add_event_detect(pin, GPIO.FALLING, self.handle_button, bouncetime=100)
+    
+    def handle_button(self, pin):
+        label = self.LABELS[self.BUTTONS.index(pin)]
+        print("Button press detected on pin: {} label: {}".format(pin, label))
+        
     def game_loop(self):
         while self.playing:
-            self.check_events()
             x = (time.time() - self.t_start) * 100
             x %= (self.title_size_x + self.disp.width)
             self.draw.rectangle((0, 0, self.disp.width, self.disp.height), (0, 0, 0))
             self.draw.text((int(self.title_text_x), 0), self.TITLE, font=self.font, fill=(255, 255, 255))
             self.disp.display(self.img)
-            pygame.display.update()
             self.reset_keys()
-
 
     def check_events(self):
         for event in pygame.event.get():
