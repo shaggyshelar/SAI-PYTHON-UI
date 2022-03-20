@@ -37,6 +37,7 @@ class MainMenu(Menu):
             self.game.draw_text("Options", 0, self.game.title_size_y * 2)
             self.game.draw_text("Credits", 0, self.game.title_size_y * 3)
             self.draw_cursor()
+            self.game.display(self.game.img)
             # self.blit_screen()
         print(" Main run_display completed")
         
