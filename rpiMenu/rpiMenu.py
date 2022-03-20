@@ -45,6 +45,7 @@ class MainMenu(Menu):
 
     def move_cursor(self):
         if self.game.DOWN_KEY:
+            print("Down Key state = {}".format(self.state))
             if self.state == 'Start':
                 self.cursor_rect.midtop = (0, self.game.title_size_y * 2)
                 self.state = 'Options'
@@ -55,6 +56,7 @@ class MainMenu(Menu):
                 self.cursor_rect.midtop = (0, self.game.title_size_y)
                 self.state = 'Start'
         elif self.game.UP_KEY:
+            print("Up Key state = {}".format(self.state))
             if self.state == 'Start':
                 self.cursor_rect.midtop = (0, self.game.title_size_y * 3)
                 self.state = 'Credits'
@@ -68,6 +70,7 @@ class MainMenu(Menu):
     def check_input(self):
         self.move_cursor()
         if self.game.START_KEY:
+            print("Start Key state = {}".format(self.state))
             if self.state == 'Start':
                 self.game.playing = True
             elif self.state == 'Options':
