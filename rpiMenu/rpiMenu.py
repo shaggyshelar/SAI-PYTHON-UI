@@ -23,7 +23,7 @@ class MainMenu(Menu):
         self.startx, self.starty = self.mid_w, self.mid_h + 30
         self.optionsx, self.optionsy = self.mid_w, self.mid_h + 50
         self.creditsx, self.creditsy = self.mid_w, self.mid_h + 70
-        self.cursor_rect.midtop = (self.startx + self.offset, self.starty)
+        self.cursor_rect.midtop = (0, self.game.title_size_y)
 
     def display_menu(self):
         self.run_display = True
@@ -33,9 +33,9 @@ class MainMenu(Menu):
             # self.check_input()
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
             self.game.draw_text('SAI', 0, 0)
-            self.game.draw_text("Start Game", 0, self.game.title_size_y)
-            self.game.draw_text("Options", 0, self.game.title_size_y * 2)
-            self.game.draw_text("Credits", 0, self.game.title_size_y * 3)
+            self.game.draw_text("Start Game", self.game.cursor_offset, self.game.title_size_y)
+            self.game.draw_text("Options", self.game.cursor_offset, self.game.title_size_y * 2)
+            self.game.draw_text("Credits", self.game.cursor_offset, self.game.title_size_y * 3)
             self.draw_cursor()
             self.game.disp.display(self.game.img)
             # self.blit_screen()
@@ -91,9 +91,9 @@ class OptionsMenu(Menu):
             # self.game.check_events()
             # self.check_input()
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
-            self.game.draw_text('Options', 0, 0)
-            self.game.draw_text("Volume", 0, self.game.title_size_y)
-            self.game.draw_text("Controls", 0, self.game.title_size_y * 2)
+            self.game.draw_text('Options', self.game.cursor_offset, 0)
+            self.game.draw_text("Volume", self.game.cursor_offset, self.game.title_size_y)
+            self.game.draw_text("Controls", self.game.cursor_offset, self.game.title_size_y * 2)
             self.draw_cursor()
             self.game.disp.display(self.game.img)
             # self.blit_screen()
@@ -127,8 +127,8 @@ class CreditsMenu(Menu):
                 self.game.curr_menu = self.game.main_menu
                 self.run_display = False
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
-            self.game.draw_text('Credits', 0, 0)
-            self.game.draw_text('Made by me', 0, self.game.title_size_y)
+            self.game.draw_text('Credits', self.game.cursor_offset, 0)
+            self.game.draw_text('Made by me', self.game.cursor_offset, self.game.title_size_y)
             self.game.disp.display(self.game.img)
             # self.blit_screen()
         print(" CreditsMenu run_display completed")

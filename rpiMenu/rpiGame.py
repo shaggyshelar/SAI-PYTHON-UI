@@ -17,6 +17,7 @@ class Game():
         pygame.init()
         self.running, self.playing = True, False
         self.DISPLAY_W, self.DISPLAY_H = 240, 240
+        self.cursor_offset = 20
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
         self.main_menu = MainMenu(self)
         self.options = OptionsMenu(self)
