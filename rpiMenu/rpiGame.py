@@ -10,18 +10,18 @@ from PIL import ImageFont
 from pygame import mixer
 from rpiMenu import *
 import ST7789
-from rpiMenu.rpiMenu import MainMenu
+from rpiMenu import MainMenu
 
 class Game():
     def __init__(self):
         pygame.init()
         self.running, self.playing = True, True
+        self.DISPLAY_W, self.DISPLAY_H = 240, 240
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
         self.main_menu = MainMenu(self)
-        # self.options = OptionsMenu(self)
+        self.options = OptionsMenu(self)
         # self.credits = CreditsMenu(self)
         self.curr_menu = self.main_menu
-        self.DISPLAY_W, self.DISPLAY_H = 240, 240
         self.BUTTONS = [5, 6, 16, 24]
         self.LABELS = ['A', 'B', 'X', 'Y']
         GPIO.setmode(GPIO.BCM)
