@@ -32,8 +32,8 @@ class MainMenu(Menu):
         self.run_display = True
         print(" Main run_display = {}".format(self.run_display))
         while self.run_display:
-            print("******** Down key 1 = {}".format(self.game.DOWN_KEY))
-            print("Label = {}".format(self.game.label))
+            # print("******** Down key 1 = {}".format(self.game.DOWN_KEY))
+            # print("Label = {}".format(self.game.label))
             self.check_input()
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
             self.game.draw_text('Main Menu', 0, 0)
@@ -113,13 +113,14 @@ class OptionsMenu(Menu):
         elif self.game.UP_KEY or self.game.DOWN_KEY:
             if self.state == 'Volume':
                 self.state = 'Controls'
-                self.cursor_rect.midtop = (self.controlsx + self.offset, self.controlsy)
+                self.cursor_rect.midtop = (0, self.game.title_size_y * 2)
             elif self.state == 'Controls':
                 self.state = 'Volume'
-                self.cursor_rect.midtop = (self.volx + self.offset, self.voly)
+                self.cursor_rect.midtop = (0, self.game.title_size_y)
         elif self.game.START_KEY:
             # TO-DO: Create a Volume Menu and a Controls Menu
             pass
+        self.reset()
 
 class CreditsMenu(Menu):
     def __init__(self, game):
