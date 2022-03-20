@@ -3,6 +3,7 @@ from rpiGame import Game
 
 g = Game()
 
+print("Initializing rpiMani....")
 while g.running:
     g.curr_menu.display_menu()
     g.game_loop()

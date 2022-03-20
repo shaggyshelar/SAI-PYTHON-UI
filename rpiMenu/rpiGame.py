@@ -47,6 +47,7 @@ class Game():
         self.title_text_x = (self.disp.width - self.title_size_x) // 2
         mixer.init()
         self.disp.begin()
+        print("display begin")
         for pin in self.BUTTONS:
             GPIO.add_event_detect(pin, GPIO.FALLING, self.handle_button, bouncetime=100)
     

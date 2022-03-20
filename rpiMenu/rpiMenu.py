@@ -27,16 +27,19 @@ class MainMenu(Menu):
 
     def display_menu(self):
         self.run_display = True
+        print(" Main run_display = {}".format(self.run_display))
         while self.run_display:
             # self.game.check_events()
             # self.check_input()
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
-            self.game.draw_text('SAI', 240 / 2, 240 / 2 - 20)
-            self.game.draw_text("Start Game", self.startx, self.starty)
-            self.game.draw_text("Options", self.optionsx, self.optionsy)
-            self.game.draw_text("Credits", self.creditsx, self.creditsy)
+            self.game.draw_text('SAI', 0, 0)
+            self.game.draw_text("Start Game", 0, self.game.title_size_y)
+            self.game.draw_text("Options", 0, self.game.title_size_y * 2)
+            self.game.draw_text("Credits", 0, self.game.title_size_y * 3)
             self.draw_cursor()
             # self.blit_screen()
+        print(" Main run_display completed")
+        
 
 
     def move_cursor(self):
@@ -82,15 +85,17 @@ class OptionsMenu(Menu):
 
     def display_menu(self):
         self.run_display = True
+        print(" OptionsMenu run_display = {}".format(self.run_display))
         while self.run_display:
             # self.game.check_events()
             # self.check_input()
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
-            self.game.draw_text('Options', 240 / 2, 240 / 2 - 30)
-            self.game.draw_text("Volume", self.volx, self.voly)
-            self.game.draw_text("Controls", self.controlsx, self.controlsy)
+            self.game.draw_text('Options', 0, 0)
+            self.game.draw_text("Volume", 0, self.game.title_size_y)
+            self.game.draw_text("Controls", 0, self.game.title_size_y * 2)
             self.draw_cursor()
             # self.blit_screen()
+        print(" OptionsMenu run_display completed")
 
     def check_input(self):
         if self.game.BACK_KEY:
@@ -113,12 +118,15 @@ class CreditsMenu(Menu):
 
     def display_menu(self):
         self.run_display = True
+        print(" CreditsMenu run_display = {}".format(self.run_display))
         while self.run_display:
             # self.game.check_events()
             if self.game.START_KEY or self.game.BACK_KEY:
                 self.game.curr_menu = self.game.main_menu
                 self.run_display = False
             self.game.draw.rectangle((0, 0, self.game.disp.width, self.game.disp.height), (0, 0, 0))
-            self.game.draw_text('Credits', 240 / 2, 240 / 2 - 20)
-            self.game.draw_text('Made by me', 240 / 2, 240 / 2 + 10)
+            self.game.draw_text('Credits', 0, 0)
+            self.game.draw_text('Made by me', 0, self.game.title_size_y)
             # self.blit_screen()
+        print(" CreditsMenu run_display completed")
+        
