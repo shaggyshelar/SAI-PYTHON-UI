@@ -19,10 +19,8 @@ class Game():
         self.DISPLAY_W, self.DISPLAY_H = 240, 240
         self.cursor_offset = 20
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
-        self.main_menu = MainMenu(self)
-        self.options = OptionsMenu(self)
-        self.credits = CreditsMenu(self)
-        self.curr_menu = self.main_menu
+        self.title_size_x, self.title_size_y = self.draw.textsize(self.TITLE, self.font)
+        self.title_text_x = (self.disp.width - self.title_size_x) // 2
         self.BUTTONS = [5, 6, 16, 24]
         self.LABELS = ['A', 'B', 'X', 'Y']
         GPIO.setmode(GPIO.BCM)
@@ -44,10 +42,12 @@ class Game():
             offset_left=0,
             offset_top=0
             )
-        self.title_size_x, self.title_size_y = self.draw.textsize(self.TITLE, self.font)
-        self.title_text_x = (self.disp.width - self.title_size_x) // 2
         mixer.init()
         self.disp.begin()
+        self.main_menu = MainMenu(self)
+        self.options = OptionsMenu(self)
+        self.credits = CreditsMenu(self)
+        self.curr_menu = self.main_menu
         print("display begin")
         for pin in self.BUTTONS:
             GPIO.add_event_detect(pin, GPIO.FALLING, self.handle_button, bouncetime=100)
