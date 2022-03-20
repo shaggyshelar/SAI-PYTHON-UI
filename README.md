@@ -1,12 +1,17 @@
 # SAI-PYTHON-UI
 
+On raspbian install following packages
+sudo apt-get install swig
+sudo ln -s /usr/bin/swig3.0 /usr/bin/swig
+
+
 To run on Mac
 - python3 main.py
 
 To Run Flite
 - git  clone https://github.com/festvox/flite
 - cd flite
-- ./configure --with-audio=alsa --with-vox=awb
+- ./configure --with-audio=alsa --with-vox=awb --enable-shared
 - make
 
 To run already created executable flite build
@@ -40,4 +45,48 @@ To run sample file include "flite_sample.so" file
 `python3 flite_sample.py`
 
 Repo for flite c to python
+
+pyflite Python Module
 https://github.com/happyalu/pyflite
+
+git clone https://github.com/happyalu/pyflite.git
+cd pyflite
+
+git clone https://github.com/happyalu/flite.git
+cd flite
+./configure --with-audio=alsa --with-vox=awb --enable-shared
+make
+sudo nano setup.py ( To update flite as per raspbian configs)
+
+`
+from distutils.core import setup, Extension
+
+import os
+
+try:
+    inc_dirs = [os.environ['FLITE_INC'],]
+except KeyError:
+    inc_dirs=['flite/include']
+
+try:
+    lib_dirs = [os.environ['FLITE_LIBS'],]
+except KeyError:
+    lib_dirs=['flite/build/armv6l-linux-gnueabihf/lib']
+
+setup(name='pyflite',
+      version='0.1',
+      ext_modules=[Extension('_pyflite', ['pyflite.i', 'pyflite.c'],
+                             include_dirs=inc_dirs,
+                             library_dirs=lib_dirs,
+                             libraries=['flite_cmu_us_kal', 'flite_usenglish', 'flite_cmulex', 'flite', 'asound', 'm'],
+                             swig_opts=['-Iflite/include'])],
+      py_modules=['pyflite']
+)
+`
+
+`python3 setup.py build`
+`sudo python3 setup.py install`
+`wget http://www.festvox.org/flite/packed/flite-2.0/voices/cmu_us_rms.flitevox`
+`python3 test.py`
+
+http://festvox.org/flite/packed/flite-2.1/voices/

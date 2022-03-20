@@ -5,6 +5,7 @@ extern void usenglish_init(cst_voice *v);
 extern cst_lexicon *cmulex_init(void);
 cst_voice *register_cmu_us_kal(const char *voxdir);
 
+
 int init() {
   int x = flite_init();
   if (x) {
@@ -18,16 +19,16 @@ int init() {
 }
 
 void* select_voice(const char* path) {
-  fprintf("**** Flite Voice Selected = %s ******",path);
+  printf("**** Flite Voice Selected ******");
   cst_voice *v = flite_voice_load(path);
   return (void*) v;
 }
 
 cst_wave* text_to_wave(const char* text) {
-  fprintf("**** TextToWave Started for  = %s ******",text);
+  printf("**** TextToWave Started for ******");
   cst_voice *v = register_cmu_us_kal(NULL);
   if (!v) {
-    printf("Error occurred while converting text to wave.")
+    printf("Error occurred while converting text to wave.");
     return NULL;
   }    
   return flite_text_to_wave(text, v);
@@ -58,3 +59,7 @@ cst_wave* text_to_wave(const char* text) {
 //     feat_set(v->features, "streaming_info", audio_streaming_info_val(asi));
 //     flite_text_to_speech("Hello World.", v, "test.wav");
 // }
+
+
+    cst_voice *v = register_cmu_us_kal(NULL);
+    flite_text_to_speech("Hello World.", v, "test.wav");
