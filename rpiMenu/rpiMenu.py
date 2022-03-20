@@ -42,7 +42,7 @@ class MainMenu(Menu):
             self.game.draw_text("Credits", self.game.cursor_offset, self.game.title_size_y * 3)
             self.draw_cursor()
             self.game.disp.display(self.game.img)
-            self.game.reset_keys()
+            # self.game.reset_keys()
             # self.reset()
         print(" Main run_display completed")
 
@@ -81,6 +81,7 @@ class MainMenu(Menu):
             elif self.state == 'Credits':
                 self.game.curr_menu = self.game.credits
             self.run_display = False
+        self.reset()
 
 class OptionsMenu(Menu):
     def __init__(self, game):

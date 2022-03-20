@@ -82,6 +82,7 @@ class Game():
             # self.reset_keys()
 
     def reset_keys(self):
+        print("Reset Key Called")
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
 
     def draw_text(self, text, x, y ):
