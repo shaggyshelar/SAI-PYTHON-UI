@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 from ctypes import *
-import signal
 import RPi.GPIO as GPIO
-import sys
 import time
 import os
 import pygame
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
-import subprocess
 from pygame import mixer
 import ST7789
 adder = CDLL('./adder.so')
