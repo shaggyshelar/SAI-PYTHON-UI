@@ -42,7 +42,7 @@ class MainMenu(Menu):
             self.game.draw_text("Credits", self.game.cursor_offset, self.game.title_size_y * 3)
             self.draw_cursor()
             self.game.disp.display(self.game.img)
-            self.reset()
+            # self.reset()
         print(" Main run_display completed")
 
     def move_cursor(self):
@@ -101,7 +101,7 @@ class OptionsMenu(Menu):
             self.game.draw_text("Controls", self.game.cursor_offset, self.game.title_size_y * 2)
             self.draw_cursor()
             self.game.disp.display(self.game.img)
-            self.reset()
+            # self.reset()
         print(" OptionsMenu run_display completed")
 
     def check_input(self):
@@ -135,6 +135,6 @@ class CreditsMenu(Menu):
             self.game.draw_text('Credits', self.game.cursor_offset, 0)
             self.game.draw_text('Made by me', self.game.cursor_offset, self.game.title_size_y)
             self.game.disp.display(self.game.img)
-            self.reset()
+            # self.reset()
         print(" CreditsMenu run_display completed")
         

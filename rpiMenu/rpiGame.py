@@ -79,7 +79,7 @@ class Game():
             # self.draw_text("Credits", self.title_text_x, self.title_size_y * 2)
             # self.draw_text("Configs", self.title_text_x, self.title_size_y * 3)
             self.disp.display(self.img)
-            self.reset_keys()
+            # self.reset_keys()
 
     def reset_keys(self):
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
