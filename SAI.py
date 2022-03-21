@@ -8,6 +8,7 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 from pygame import mixer
+import io
 import ST7789
 adder = CDLL('./adder.so')
 
@@ -52,6 +53,15 @@ mixer.init()
 mixer.music.load("Flite/test.wav")
 mixer.music.set_volume(0.7)
 mixer.music.play()
+
+# In Memory bytes to pymixer play
+# bytestreamreader = open('pythonGeneratedWav.wav','rb')
+# readBytes = bytearray(bytestreamreader.read())
+# bytestreamwriter = io.BytesIO()
+# temp = io.BytesIO(readBytes)
+# pygame.mixer.music.load(temp)
+# pygame.mixer.music.play()
+# time.sleep(5)
 
 a_sound = pygame.mixer.Sound("Flite/A.wav")
 b_sound = pygame.mixer.Sound("Flite/B.wav")
