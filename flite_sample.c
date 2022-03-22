@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "include/flite.h"
+#include "flite/flite.h"
 
 extern void usenglish_init(cst_voice *v);
 extern cst_lexicon *cmulex_init(void);

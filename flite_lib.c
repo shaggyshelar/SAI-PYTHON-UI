@@ -1,5 +1,5 @@
 #include <Python.h>
-#include "include/flite.h"
+#include <flite/flite.h>
 
 cst_voice *register_cmu_us_kal(const char *voxdir);
 

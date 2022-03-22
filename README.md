@@ -11,7 +11,8 @@ To run on Mac
 To Run Flite
 - git  clone https://github.com/festvox/flite
 - cd flite
-- ./configure --with-audio=alsa --with-vox=awb --enable-shared
+- (Do Not Use) ./configure --with-audio=alsa --with-vox=awb --enable-shared
+- ./configure --enable-shared
 - make
 
 To run already created executable flite build
@@ -44,7 +45,9 @@ To Compile "flite_sample.c" which include flite on MacOS
 `gcc -shared -Wl,-install_name,flite_sample -g -o flite_sample.so -fPIC flite_sample.c -I./include -L./build/x86_64-darwin21.1.0/lib -lflite_cmu_us_kal -lflite_usenglish -lflite_cmulex -lflite -lm`
 
 To Compile "flite_sample.c" which include flite on RaspberyPi
-`gcc -shared -Wl,-soname,flite_sample -g -o flite_sample.so -fPIC flite_sample.c -I./include -L./build/armv6l-linux-gnueabihf/lib -lflite_cmu_us_kal -lflite_usenglish -lflite_cmulex -lflite -lm -lasound`
+`gcc -shared -Wl,-soname,flite_sample -g -o flite_sample.so -fPIC flite_sample.c -I./include -L./build/armv6l-linux-gnueabihf/lib -lflite_cmu_us_kal -lflite_usenglish -lflite_cmulex -lflite -lm -lasound -lpython3.9`
+
+`gcc -shared -Wl,-soname,flite_lib -g -o flite_lib.so -fPIC flite_lib.c -I./include -L./build/armv6l-linux-gnueabihf/lib -lflite_cmu_us_kal -lflite_usenglish -lflite_cmulex -lflite -lm -lasound -lpython3.9`
 
 
 To run sample file include "flite_sample.so" file
