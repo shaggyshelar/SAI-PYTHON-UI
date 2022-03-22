@@ -14,6 +14,14 @@ To Run Flite
 - (Do Not Use) ./configure --with-audio=alsa --with-vox=awb --enable-shared
 - ./configure --enable-shared
 - make
+  
+To create "fliteLib" python library
+- cp ../flite_lib.c .
+- cp ../flite_lib_example.py .
+- cp ../setup.py .
+- python3 setup build
+- python3 setup install
+- python3 flite_lib_example.py
 
 To run already created executable flite build
 - cd Flite
