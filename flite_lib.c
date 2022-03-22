@@ -11,7 +11,7 @@ static PyObject *textToWave(PyObject *self, PyObject *args)
         return NULL;
     }
     cst_voice *v = register_cmu_us_kal(NULL);
-    // flite_text_to_speech(text_to_convert, v, "sagar-sai-check.wav");
+    flite_text_to_speech(text_to_convert, v, "test.wav");
     cst_wave *waveData = flite_text_to_wave(text_to_convert, v);
     
     float dur = (float)waveData->num_samples / (float)waveData->sample_rate;

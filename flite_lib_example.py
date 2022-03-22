@@ -13,10 +13,10 @@ import fliteLib
 
 waveOutput = fliteLib.textToWave("hi")
 print("**************** Output *********")
-print(waveOutput)
+# print(waveOutput)
 
-# waveBytes = b"".join(waveOutput)
-# print(waveBytes)
+waveBytes = b"".join(waveOutput)
+print(waveBytes)
 
 # bytestreamreader = open('sagar-sai-check.wav','rb')
 # print("****************read bytes*********")
