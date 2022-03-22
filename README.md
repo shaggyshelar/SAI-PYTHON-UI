@@ -22,6 +22,12 @@ To run already created executable flite build
 - `./flite -voice ./voices/cmu_indic_mar_aup.flitevox "आपण निवडलेल्या भाषेमध्ये टाइप करणे सोपे बनवतात" -o marathi.wav`
 - aplay marathi.wav
 
+To build `fliteLib` c to python module
+`python3 setup.py build`
+
+To install `fliteLib` python module
+`sudo python3 setup.py install`
+
 Create installer file
 - `pip3 install pyinstaller`
 - `python3 -m PyInstaller --onefile --add-data="Flite/test.wav:Flite" --add-data="Flite/A.wav:Flite" --add-data="Flite/B.wav:Flite" --add-data="Flite/X.wav:Flite" --add-data="Flite/Y.wav:Flite" SAI.py`

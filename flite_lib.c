@@ -1,5 +1,5 @@
 #include <Python.h>
-#include <flite/flite.h>
+#include "include/flite.h"
 
 cst_voice *register_cmu_us_kal(const char *voxdir);
 
@@ -15,9 +15,9 @@ static PyObject *textToWave(PyObject *self, PyObject *args)
     cst_wave *waveData = flite_text_to_wave(text_to_convert, v);
     
     float dur = (float)waveData->num_samples / (float)waveData->sample_rate;
-    int sampleRate = waveData->sample_rate;
+    // int sampleRate = waveData->sample_rate;
     int numberOfSamples = waveData->num_samples;
-    int numberOfChannels = waveData->num_channels;
+    // int numberOfChannels = waveData->num_channels;
     short *samples = waveData->samples;
 
     printf("\n File writing done %d, dur = %f, char= %hd \n", numberOfSamples, dur, samples[49]);
